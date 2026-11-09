@@ -3,33 +3,210 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Moje portfólio — začiatok</title>
-  <!-- Vzhľad stránky je v samostatnom súbore styles.css (vrstva CSS) -->
+  <meta name="description" content="Tesárske práce, strechy, zruby a drevené stavby na mieru.">
+  <title>Zruby a Krovy | Poctivé tesárske remeslo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <main>
+    <section class="hero" id="domov" aria-labelledby="hero-title">
+      <header class="site-header">
+        <a class="brand" href="#domov" aria-label="Zruby a Krovy, domov">
+          <span class="brand-mark" aria-hidden="true">Z<span>&</span>K</span>
+          <span class="brand-name">Zruby <span>a</span> Krovy</span>
+        </a>
+        <nav class="main-nav" aria-label="Hlavná navigácia">
+          <a href="#o-nas">O nás</a>
+          <a href="#sluzby">Druhy prác</a>
+          <a href="#drevo">Druhy dreva</a>
+          <a href="#galeria">Galéria</a>
+          <a class="nav-contact" href="#kontakt">Kontakt <span aria-hidden="true">↗</span></a>
+        </nav>
+      </header>
 
-  <main class="uvitanie">
-    <div class="emoji">👋</div>
-    <h1>Tu vznikne moje portfólio</h1>
-    <p class="podtext">
-      Toto je štartová stránka kurzu <strong>Tvorba webstránok</strong>.
-      Odteraz ju budeš meniť ty — s pomocou AI asistenta.
-    </p>
+      <div class="hero-content">
+        <p class="eyebrow">Tesárstvo pre domov aj záhradu</p>
+        <h1 id="hero-title">Poctivá práca.<br><em>Drevo, ktoré vydrží.</em></h1>
+        <p class="hero-copy">Strechy, zruby a drevené stavby, ktoré prirodzene patria do krajiny aj do vášho života.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#sluzby">Naše práce <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#kontakt">Poradiť sa o projekte <span aria-hidden="true">↗</span></a>
+        </div>
+        <form class="site-search" id="site-search" role="search">
+          <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
+          <input id="search-query" type="search" placeholder="Nájdite službu alebo materiál" required>
+          <button type="submit" aria-label="Vyhľadať">Hľadať <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="search-status" id="search-status" role="status" aria-live="polite"></p>
+      </div>
+      <div class="hero-foot">
+        <span>Remeslo s rešpektom k materiálu</span>
+        <a href="#o-nas">Objavte Zruby a Krovy <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
 
-    <div class="karta">
-      <p class="karta-nadpis">Ako začať:</p>
-      <ol>
-        <li>Otvor <strong>Copilot Chat</strong> (ikona Copilota vpravo) — sem píšeš, čo chceš vytvoriť.</li>
-        <li>Tento súbor <code>index.html</code> si pozri v <strong>živom náhľade</strong>: pravý klik naň → <em>Show Preview</em>.</li>
-        <li>Choď na <strong>Blok 7</strong> kurzu a postupuj podľa neho.</li>
-      </ol>
-    </div>
+    <section class="intro section-wrap" id="o-nas" aria-labelledby="intro-title">
+      <div class="intro-label"><span class="section-index">01</span><span>O nás</span></div>
+      <div class="intro-body">
+        <h2 id="intro-title">Staviame z dreva.<br><em>Na roky dopredu.</em></h2>
+        <div class="intro-copy">
+          <p>Každá stavba sa začína dobrým plánom a výberom správneho materiálu. Pomáhame ľuďom vytvárať pevné strechy, útulné zruby aj miesta na oddych v záhrade.</p>
+          <a class="underlined-link" href="#kontakt">Povedzte nám o svojom zámere <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="intro-stats" aria-label="Zameranie firmy">
+        <div><strong>01</strong><span>Premyslený návrh</span></div>
+        <div><strong>02</strong><span>Poctivý materiál</span></div>
+        <div><strong>03</strong><span>Remeselná práca</span></div>
+      </div>
+    </section>
 
-    <p class="poznamka">
-      Keď spravíš prvú zmenu, tento text pokojne zmaž — je len na úvod.
-    </p>
+    <section class="services section-wrap" id="sluzby" aria-labelledby="services-title">
+      <div class="section-heading">
+        <div class="intro-label"><span class="section-index">02</span><span>Čomu sa venujeme</span></div>
+        <h2 id="services-title">Drevo poznáme<br><em>od základu.</em></h2>
+      </div>
+      <div class="service-list">
+        <a class="service-row" href="#kontakt">
+          <span class="service-number">01</span><h3>Strechy a krovy</h3><span class="service-description">Nové konštrukcie aj opravy</span><span class="service-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="service-row" href="#kontakt">
+          <span class="service-number">02</span><h3>Zrubové domy</h3><span class="service-description">Bývanie s vôňou dreva</span><span class="service-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="service-row" href="#kontakt">
+          <span class="service-number">03</span><h3>Altánky a prístrešky</h3><span class="service-description">Úžitok aj oddych v záhrade</span><span class="service-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="service-row" href="#kontakt">
+          <span class="service-number">04</span><h3>Rekonštrukcie</h3><span class="service-description">Nový život pre drevené stavby</span><span class="service-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="service-row" href="#kontakt">
+          <span class="service-number">05</span><h3>Výrobky na mieru</h3><span class="service-description">Drevené prvky podľa zadania</span><span class="service-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="wood section-wrap" id="drevo" aria-labelledby="wood-title">
+      <div class="wood-intro">
+        <div class="intro-label"><span class="section-index">03</span><span>Materiál</span></div>
+        <h2 id="wood-title">Každé drevo<br>má svoj <em>charakter.</em></h2>
+        <p>Výber dreviny závisí od miesta, zaťaženia aj vzhľadu stavby. Tu je stručné porovnanie najčastejšie používaných možností.</p>
+      </div>
+      <div class="wood-table-wrap">
+        <table>
+          <thead><tr><th scope="col">Drevina</th><th scope="col">Vlastnosti</th><th scope="col">Vhodné použitie</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Smrek</th><td>Ľahký, dobre opracovateľný</td><td>Krovy, interiér, zruby</td></tr>
+            <tr><th scope="row">Borovica</th><td>Pružná, živicová, výrazná kresba</td><td>Konštrukcie, obklady</td></tr>
+            <tr><th scope="row">Smrekovec</th><td>Odolný, pevný, prirodzene trvácny</td><td>Exteriér, fasády, terasy</td></tr>
+            <tr><th scope="row">Dub</th><td>Tvrdý, pevný, s dlhou životnosťou</td><td>Namáhané prvky, interiér</td></tr>
+          </tbody>
+        </table>
+        <p class="table-note">Vlastnosti sa líšia podľa kvality, vlhkosti a spracovania konkrétneho dreva.</p>
+      </div>
+    </section>
+
+    <section class="gallery section-wrap" id="galeria" aria-labelledby="gallery-title">
+      <div class="gallery-heading">
+        <div>
+          <div class="intro-label"><span class="section-index">04</span><span>Galéria</span></div>
+          <h2 id="gallery-title">Drevo v <em>dobrých rukách.</em></h2>
+        </div>
+        <p>Od pevnej konštrukcie až po miesto, kde sa dobre oddychuje.</p>
+      </div>
+      <div class="gallery-grid">
+        <a class="gallery-item gallery-large" href="#kontakt">
+          <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1400&q=85" alt="Drevená chata zasadená do lesnej krajiny" loading="lazy">
+          <span class="gallery-caption"><span>Zrubové domy</span><span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="gallery-item" href="#kontakt">
+          <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85" alt="Detail modernej strešnej konštrukcie" loading="lazy">
+          <span class="gallery-caption"><span>Strechy a krovy</span><span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="gallery-item" href="#kontakt">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Drevená stavba a záhradné posedenie" loading="lazy">
+          <span class="gallery-caption"><span>Altánky</span><span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="gallery-item" href="#kontakt">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85" alt="Drevené prvky v útulnom interiéri" loading="lazy">
+          <span class="gallery-caption"><span>Drevené výrobky</span><span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+      <p class="gallery-note">Fotografie sú ilustračné. Galériu vlastných realizácií doplníme po dodaní firemných fotografií.</p>
+    </section>
+
+    <section class="contact" id="kontakt" aria-labelledby="contact-title">
+      <div class="contact-inner section-wrap">
+        <div class="contact-copy">
+          <div class="intro-label"><span class="section-index">05</span><span>Kontakt</span></div>
+          <h2 id="contact-title">Čo plánujete<br><em>postaviť?</em></h2>
+          <p>Napíšte nám pár slov o svojom projekte. Ozveme sa vám a preberieme možnosti.</p>
+          <div class="contact-details">
+            <span>Telefón</span><strong>Údaj doplní firma</strong>
+            <span>E-mail</span><strong>Údaj doplní firma</strong>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <label for="name">Meno</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Ako vás môžeme osloviť?" required>
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="vas@email.sk" required>
+          <label for="service">O čo máte záujem?</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Vyberte druh práce</option>
+            <option>Strecha alebo krov</option>
+            <option>Zrubový dom</option>
+            <option>Altánok alebo prístrešok</option>
+            <option>Rekonštrukcia</option>
+            <option>Drevený výrobok na mieru</option>
+            <option>Iné</option>
+          </select>
+          <label for="message">Stručný opis projektu</label>
+          <textarea id="message" name="message" rows="3" placeholder="Miesto, predstava, približný termín…" required></textarea>
+          <button class="button button-dark" type="submit">Pripraviť dopyt <span aria-hidden="true">↗</span></button>
+          <p class="form-note" id="form-note" role="status">Formulár zatiaľ nie je napojený na firemný e-mail.</p>
+        </form>
+      </div>
+    </section>
   </main>
 
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#domov" aria-label="Zruby a Krovy, späť na začiatok">
+      <span class="brand-mark" aria-hidden="true">Z<span>&</span>K</span>
+      <span class="brand-name">Zruby <span>a</span> Krovy</span>
+    </a>
+    <span>Poctivé tesárske remeslo</span>
+    <a href="#domov">Späť na začiatok ↑</a>
+  </footer>
+
+  <script>
+    const searchForm = document.querySelector("#site-search");
+    const searchInput = document.querySelector("#search-query");
+    const searchStatus = document.querySelector("#search-status");
+    const form = document.querySelector("#contact-form");
+    const formNote = document.querySelector("#form-note");
+
+    searchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const query = searchInput.value.trim().toLocaleLowerCase("sk");
+      const match = [...document.querySelectorAll("main section[id]")].find((section) =>
+        section.textContent.toLocaleLowerCase("sk").includes(query)
+      );
+
+      if (match) {
+        searchStatus.textContent = `Našli sme sekciu: ${match.querySelector("h1, h2")?.textContent.trim()}.`;
+        match.scrollIntoView({ behavior: "smooth" });
+      } else {
+        searchStatus.textContent = "Takýto obsah sme nenašli. Skúste napríklad strecha, smrek alebo altánok.";
+      }
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      formNote.textContent = "Ďakujeme. Formulár bude možné odoslať po doplnení firemného e-mailu.";
+    });
+  </script>
 </body>
 </html>
