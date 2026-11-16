@@ -4,9 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kontakt | Zruby a Krovy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Oranienbaum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body class="page-body">
@@ -19,7 +16,7 @@
 
         <nav class="main-nav" aria-label="Hlavná navigácia">
           <a href="o-nas.html">O nás</a>
-          <a href="druhy-prace.html">Druhy práce</a>
+          <a href="druhy-prace.html">Druhy prác</a>
           <a href="druhy-dreva.html">Druhy dreva</a>
           <a href="galeria.html">Galéria</a>
           <a class="nav-contact" href="kontakt.html">Kontakt <span aria-hidden="true">↗</span></a>
@@ -28,44 +25,42 @@
         <form class="site-search" id="site-search" role="search" aria-label="Vyhľadávanie">
           <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
           <input id="search-query" type="search" placeholder="Search" aria-label="Search" />
-          <button type="submit" aria-label="Vyhľadať">⌕</button>
+          <button type="submit" aria-label="Vyhľadať"><span aria-hidden="true"></span></button>
         </form>
+        <a class="profile-link" href="kontakt.html" aria-label="Kontaktujte nás"></a>
       </header>
 
       <section class="page-content">
         <div class="page-hero">
           <span class="page-kicker">Kontakt</span>
-          <h1 class="page-title">Radi vám pomôžeme s vaším projektom</h1>
-          <p class="page-lead">Napíšte nám, ak potrebujete konzultáciu, cenovú ponuku alebo jednoduché poradenstvo pri výbere typu konštrukcie či dreva.</p>
+          <h1 class="page-title">Kontakt na nás</h1>
+          <p class="page-lead">Napíšte nám alebo zavolajte. Radi s vami preberieme váš projekt a pomôžeme s výberom vhodného riešenia.</p>
         </div>
 
         <div class="contact-grid">
-          <article class="contact-card">
-            <h3>Telefon</h3>
-            <p>+421 912 345 678</p>
-            <a href="tel:+421912345678">Zavolať</a>
-          </article>
-          <article class="contact-card">
-            <h3>E-mail</h3>
-            <p>info@zrubyakrovy.sk</p>
-            <a href="mailto:info@zrubyakrovy.sk">Napísať email</a>
-          </article>
-          <article class="contact-card">
-            <h3>Pracovné hodiny</h3>
-            <p>Pon – Pia 08:00 – 17:00</p>
-            <a href="index.html">Späť na domov</a>
-          </article>
-        </div>
+          <aside class="contact-info">
+            <h2>Kontakt na nás</h2>
+            <p>Martin Tepličanec</p>
+            <p>Rajec 391</p>
+            <p><a href="tel:+421904469754">+421 904 469 754</a></p>
+            <p><a href="mailto:teplicanec2@stud.uniza.sk">teplicanec2@stud.uniza.sk</a></p>
+          </aside>
 
-        <div class="contact-card" style="margin-top: 32px; max-width: 680px;">
-          <h3>Kontaktujte nás</h3>
-          <form id="contact-form">
-            <input class="form-field" type="text" placeholder="Meno a priezvisko" aria-label="Meno a priezvisko">
-            <input class="form-field" type="email" placeholder="E-mail" aria-label="E-mail">
-            <textarea class="form-field" rows="5" placeholder="Vaša požiadavka" aria-label="Vaša požiadavka"></textarea>
-            <button type="submit">Odoslať</button>
-          </form>
-          <p id="form-note" class="form-note">Po odoslaní formulára vás budeme kontaktovať v najbližšom možnom termíne.</p>
+          <section class="contact-card contact-form">
+            <h2>Formulár</h2>
+            <form id="contact-form">
+              <label for="contact-name">Meno a priezvisko</label>
+              <input class="form-field" id="contact-name" name="name" type="text" autocomplete="name" required>
+              <label for="contact-email">Váš email</label>
+              <input class="form-field" id="contact-email" name="email" type="email" autocomplete="email" required>
+              <label for="contact-subject">Predmet</label>
+              <input class="form-field" id="contact-subject" name="subject" type="text" required>
+              <label for="contact-message">Vaša správa</label>
+              <textarea class="form-field" id="contact-message" name="message" rows="5" required></textarea>
+              <button type="submit">Odoslať</button>
+            </form>
+            <p id="form-note" class="form-note">Formulár slúži na prípravu dopytu; správa sa zatiaľ neodosiela na server.</p>
+          </section>
         </div>
       </section>
     </main>

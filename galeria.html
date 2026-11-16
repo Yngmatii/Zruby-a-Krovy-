@@ -4,9 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Galéria | Zruby a Krovy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Oranienbaum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body class="page-body">
@@ -19,7 +16,7 @@
 
         <nav class="main-nav" aria-label="Hlavná navigácia">
           <a href="o-nas.html">O nás</a>
-          <a href="druhy-prace.html">Druhy práce</a>
+          <a href="druhy-prace.html">Druhy prác</a>
           <a href="druhy-dreva.html">Druhy dreva</a>
           <a href="galeria.html">Galéria</a>
           <a class="nav-contact" href="kontakt.html">Kontakt <span aria-hidden="true">↗</span></a>
@@ -28,8 +25,9 @@
         <form class="site-search" id="site-search" role="search" aria-label="Vyhľadávanie">
           <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
           <input id="search-query" type="search" placeholder="Search" aria-label="Search" />
-          <button type="submit" aria-label="Vyhľadať">⌕</button>
+          <button type="submit" aria-label="Vyhľadať"><span aria-hidden="true"></span></button>
         </form>
+        <a class="profile-link" href="kontakt.html" aria-label="Kontaktujte nás"></a>
       </header>
 
       <section class="page-content">
@@ -43,36 +41,36 @@
           <h2>Tradičné zruby</h2>
           <div class="gallery-grid">
             <article class="gallery-card">
-              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" alt="Zrubový dom">
+              <img src="img/cabin-hero.svg" alt="Zrubový dom s tmavou strechou">
               <div class="card-body">
                 <h3>Rodinný zrub</h3>
                 <p>Komfortný rodinný dom s prirodzenou atmosférou a tradičným dreveným charakterom.</p>
               </div>
             </article>
             <article class="gallery-card">
-              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Zrubová chata">
+              <img src="img/project-reference/zrub.svg" alt="Rozostavaný zrubový dom">
               <div class="card-body">
                 <h3>Zrubová chata</h3>
-                <p>Klidné rekreačné priestory pre oddych v prírode s dôrazom na kvalitu dreva.</p>
+                <p>Pokojné rekreačné priestory pre oddych v prírode s dôrazom na kvalitu dreva.</p>
               </div>
             </article>
           </div>
         </section>
 
         <section class="gallery-section" id="rekonstrukcie">
-          <h2>Rekonstrukcie</h2>
+          <h2>Rekonštrukcie</h2>
           <div class="gallery-grid">
             <article class="gallery-card">
-              <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Rekonstrukcia domu">
+              <img src="img/project-reference/rekonstrukcia.svg" alt="Rekonštrukcia domu a strechy">
               <div class="card-body">
                 <h3>Obnova starej drevenice</h3>
-                <p>Rekonstrukcia s výrazne zlepšenou tepelnou ochranou a zachovaním historickej atmosféry.</p>
+                <p>Rekonštrukcia s výrazne zlepšenou tepelnou ochranou a zachovaním historickej atmosféry.</p>
               </div>
             </article>
             <article class="gallery-card">
-              <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1200&q=80" alt="Rekonstrukcia strechy">
+              <img src="img/project-reference/strecha.svg" alt="Nový strešný krov">
               <div class="card-body">
-                <h3>Výměna strešného systému</h3>
+                <h3>Výmena strešného systému</h3>
                 <p>Modernizácia staršej konštrukcie s použitím odolných a esteticky vhodných materiálov.</p>
               </div>
             </article>
@@ -83,20 +81,51 @@
           <h2>Strechy</h2>
           <div class="gallery-grid">
             <article class="gallery-card">
-              <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=1200&q=80" alt="Moderná strecha">
+              <img src="img/project-reference/strecha.svg" alt="Strešný krov rodinného domu">
               <div class="card-body">
-                <h3>Moderná krovia</h3>
+                <h3>Moderný krov</h3>
                 <p>Presné riešenie s použitím kvalitného dreva a funkčných strešných systémov.</p>
               </div>
             </article>
             <article class="gallery-card">
-              <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80" alt="Strecha nad domom">
+              <img src="img/project-reference/rekonstrukcia.svg" alt="Oprava strechy rodinného domu">
               <div class="card-body">
                 <h3>Tradičná strecha</h3>
-                <p>Klasycky profil doplnený o spoľahlivú nosnú konštrukciu a tradičný vzhľad.</p>
+                <p>Klasický profil doplnený o spoľahlivú nosnú konštrukciu a tradičný vzhľad.</p>
               </div>
             </article>
           </div>
+        </section>
+
+        <section class="gallery-section" id="altanky">
+          <h2>Altánky</h2>
+          <div class="gallery-grid">
+            <article class="gallery-card">
+              <img src="img/project-reference/altanok.svg" alt="Drevený záhradný altánok">
+              <div class="card-body">
+                <h3>Záhradný altánok</h3>
+                <p>Tradičný drevený altánok navrhnutý na pohodlný oddych v záhrade.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="gallery-section" id="vyrobky">
+          <h2>Výrobky z dreva</h2>
+          <div class="gallery-grid">
+            <article class="gallery-card">
+              <img src="img/project-reference/vyrobky.svg" alt="Ručne vyrobená drevená lavička">
+              <div class="card-body">
+                <h3>Drevené výrobky na mieru</h3>
+                <p>Praktické záhradné prvky vyrobené z dreva podľa individuálneho zadania.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="gallery-section" id="videa">
+          <h2>Videá</h2>
+          <div class="gallery-video">Videá z realizácií pripravujeme.</div>
         </section>
       </section>
     </main>

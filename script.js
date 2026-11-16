@@ -16,9 +16,9 @@ if (contactForm) {
   contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
     if (formNote) {
-      formNote.textContent = 'Ďakujeme. Vaša správa bola zaznamenaná a radi sa vám ozveme.';
+      formNote.textContent =
+        'Formulár zatiaľ nie je napojený na odosielanie. Zavolajte nám alebo napíšte na uvedený e-mail.';
     }
-    contactForm.reset();
   });
 }
 

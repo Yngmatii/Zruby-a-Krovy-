@@ -3,10 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Druhy práce | Zruby a Krovy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Oranienbaum&display=swap" rel="stylesheet">
+    <title>Druhy prác | Zruby a Krovy</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body class="page-body">
@@ -19,7 +16,7 @@
 
         <nav class="main-nav" aria-label="Hlavná navigácia">
           <a href="o-nas.html">O nás</a>
-          <a href="druhy-prace.html">Druhy práce</a>
+          <a href="druhy-prace.html">Druhy prác</a>
           <a href="druhy-dreva.html">Druhy dreva</a>
           <a href="galeria.html">Galéria</a>
           <a class="nav-contact" href="kontakt.html">Kontakt <span aria-hidden="true">↗</span></a>
@@ -28,55 +25,71 @@
         <form class="site-search" id="site-search" role="search" aria-label="Vyhľadávanie">
           <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
           <input id="search-query" type="search" placeholder="Search" aria-label="Search" />
-          <button type="submit" aria-label="Vyhľadať">⌕</button>
+          <button type="submit" aria-label="Vyhľadať"><span aria-hidden="true"></span></button>
         </form>
+        <a class="profile-link" href="kontakt.html" aria-label="Kontaktujte nás"></a>
       </header>
 
       <section class="page-content">
         <div class="page-hero">
-          <span class="page-kicker">Druhy práce</span>
+          <span class="page-kicker">Druhy prác</span>
           <h1 class="page-title">Komplexné tesárske a drevostavbárske služby</h1>
           <p class="page-lead">Našim zákazníkom ponúkame riešenia od menších drevených prístreškov až po náročnejšie zrubové a strešné realizácie. Každá práca je spracovaná s ohľadom na funkčnosť, estetiku a dlhodobú životnosť.</p>
         </div>
 
         <div class="service-grid">
           <article class="service-card">
-            <h3>Strechy a krovy</h3>
-            <p>Nové strešné konštrukcie, opravy a výmena krytiny s dôrazom na odolnosť proti poveternostným vplyvom.</p>
-            <ul>
-              <li>konštrukcia krokiev a krov</li>
-              <li>opravy a rekonštrukcie</li>
-              <li>tvarové a profilové riešenia</li>
-            </ul>
-          </article>
-
-          <article class="service-card">
-            <h3>Zrubové domy</h3>
-            <p>Stavba tradičných i moderných zrubových objektov, ktoré majú pocit tepla a prirodzenej kvality.</p>
-            <ul>
-              <li>zrubové domy a chaty</li>
-              <li>prístavby a rozšírenia</li>
-              <li>zrubové detaily a interiérové prvky</li>
-            </ul>
-          </article>
-
-          <article class="service-card">
-            <h3>Altánky a prístrešky</h3>
-            <p>Priestranné a praktické drevené prístrešky pre záhradu, auto alebo relaxáciu v prírode.</p>
-            <ul>
-              <li>altánky a pergoly</li>
-              <li>prístrešky pre auto</li>
-              <li>záhradné drevené stavby</li>
-            </ul>
-          </article>
-
-          <article class="service-card">
             <h3>Rekonštrukcie</h3>
-            <p>Obnovujeme a vylepšujeme existujúce drevené konštrukcie tak, aby získali nový život bez straty originality.</p>
+            <img src="img/project-reference/rekonstrukcia.svg" alt="Rekonštrukcia strechy rodinného domu">
+            <p>Vychytáme nový život starým stavbám a chránime to najcennejšie – váš domov. Spájame overené tesárske postupy s modernými štandardmi kvality.</p>
             <ul>
-              <li>opravy strešných konštrukcií</li>
-              <li>obnova drevobetónových prvkov</li>
-              <li>zvýšenie úžitkových vlastností</li>
+              <li>Výmena poškodených drevených trámov a krokiev</li>
+              <li>Renovácia povrchu dreva, brúsenie a tmelenie</li>
+              <li>Ochranné nátery proti škodcom, vlhkosti a UV žiareniu</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <h3>Stavba striech</h3>
+            <img src="img/project-reference/strecha.svg" alt="Nový strešný krov na rodinnom dome">
+            <p>Vyrábame a montujeme nové krovy na mieru. Každú konštrukciu prispôsobíme stavbe aj požadovanému typu strechy.</p>
+            <ul>
+              <li>Presná výroba a montáž krovov</li>
+              <li>Výber vhodného dreva a konštrukčného riešenia</li>
+              <li>Opravy a úpravy existujúcich striech</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <h3>Stavba zrubových domov</h3>
+            <img src="img/project-reference/zrub.svg" alt="Rozostavaný zrubový dom">
+            <p>Navrhujeme a realizujeme zruby s tradičným charakterom a dôrazom na pohodlie, kvalitný materiál a dlhú životnosť.</p>
+            <ul>
+              <li>Individuálny návrh a vizualizácia</li>
+              <li>Výber a príprava kvalitného dreva</li>
+              <li>Realizácia od konštrukcie po dokončenie</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <h3>Stavba altánkov</h3>
+            <img src="img/project-reference/altanok.svg" alt="Drevený záhradný altánok">
+            <p>Altánky a prístrešky na mieru vytvárajú príjemné miesto na oddych a prirodzene dopĺňajú vašu záhradu.</p>
+            <ul>
+              <li>Altánky, pergoly a prístrešky pre autá</li>
+              <li>Návrh podľa rozmerov a potrieb pozemku</li>
+              <li>Odolná drevená konštrukcia a strecha</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <h3>Výrobky z dreva na mieru</h3>
+            <img src="img/project-reference/vyrobky.svg" alt="Ručne vyrobená drevená záhradná lavička">
+            <p>Vyrábame praktické aj dekoratívne prvky, ktoré doplnia dom, terasu alebo záhradu.</p>
+            <ul>
+              <li>Lavičky a záhradné doplnky</li>
+              <li>Drevené prvky podľa individuálneho zadania</li>
+              <li>Poctivé spracovanie a kvalitný materiál</li>
             </ul>
           </article>
         </div>
