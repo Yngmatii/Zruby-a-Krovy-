@@ -279,6 +279,8 @@ img { display: block; max-width: 100%; }
   background: #c3c3c3;
 }
 
+.home-main { padding-bottom: 14px; }
+
 .page-header { min-height: 72px; }
 
 .subpage-hero {
@@ -292,6 +294,16 @@ img { display: block; max-width: 100%; }
     linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48)),
     url("img/Hlavná fotka.jpg") center 48% / cover no-repeat;
 }
+
+.hero-home .subpage-hero-panel { width: min(760px, 78%); }
+
+.hero-home .hero-badges {
+  top: 50%;
+  right: 3.5%;
+  transform: translateY(-50%);
+}
+
+.hero-home .hero-badge { pointer-events: auto; }
 
 .subpage-hero-panel {
   width: min(760px, 90%);
@@ -654,6 +666,14 @@ img { display: block; max-width: 100%; }
   .main-nav a { font-size: clamp(9px, 1.35vw, 11px); }
   .site-search { flex: 0 1 clamp(78px, 17vw, 136px); min-width: 78px; }
   .profile-link { flex-basis: 22px; width: 22px; height: 22px; }
+  .hero-home { padding-bottom: 56px; }
+  .hero-home .hero-badges {
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+    flex-direction: row;
+    transform: none;
+  }
 }
 
 @media (max-width: 560px) {
@@ -676,6 +696,10 @@ img { display: block; max-width: 100%; }
   .subpage-hero-panel { width: 100%; padding: 22px 16px; }
   .subpage-hero .page-title { font-size: 28px; }
   .subpage-hero .page-lead { font-size: 14px; }
+  .hero-home { min-height: 400px; }
+  .hero-home .subpage-hero-panel { width: 100%; }
+  .hero-home .hero-badges { gap: 8px; }
+  .hero-home .hero-badge { min-height: 20px; padding-inline: 6px; font-size: 10px; }
   .page-content { padding: 24px 14px; }
   .about-layout { grid-template-columns: 1fr; }
   .about-image,
