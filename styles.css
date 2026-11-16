@@ -56,7 +56,7 @@ main {
   position: relative;
   min-height: 760px;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.34)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.28)),
     url("https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=2200&q=90") center center / cover no-repeat;
   color: #fff;
   padding: 18px clamp(18px, 4vw, 52px) 0;
@@ -92,13 +92,13 @@ main {
   z-index: 2;
   max-width: 1240px;
   margin: 0 auto;
-  min-height: 54px;
+  min-height: 56px;
   justify-content: space-between;
   gap: 18px;
-  padding: 8px 14px 8px 12px;
-  border-radius: 20px 20px 0 0;
-  background: rgba(12, 14, 12, 0.28);
-  backdrop-filter: blur(3px);
+  padding: 8px 16px 8px 12px;
+  border-radius: 18px 18px 0 0;
+  background: rgba(12, 14, 12, 0.32);
+  backdrop-filter: blur(2px);
 }
 
 .brand {
@@ -209,18 +209,18 @@ main {
 .hero-copy-panel {
   flex-direction: column;
   align-items: flex-start;
-  width: min(720px, 72vw);
-  padding: 16px 20px 12px 18px;
-  background: rgba(255, 255, 255, 0.54);
+  width: min(760px, 76vw);
+  padding: 18px 20px 12px 18px;
+  background: rgba(255, 255, 255, 0.56);
   backdrop-filter: blur(2px);
-  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
 }
 
 .hero-copy-panel h1 {
   margin: 0 0 12px;
   font-family: var(--serif);
-  font-size: clamp(2.7rem, 4.5vw, 4rem);
-  line-height: 0.96;
+  font-size: clamp(2.65rem, 4.2vw, 3.6rem);
+  line-height: 0.95;
   font-weight: 700;
   letter-spacing: 0.01em;
   color: rgba(14, 15, 15, 0.96);
@@ -228,7 +228,7 @@ main {
 
 .hero-copy-panel p {
   margin: 0;
-  max-width: 610px;
+  max-width: 620px;
   color: rgba(17, 18, 18, 0.8);
   font-size: 15px;
   line-height: 1.5;
@@ -237,7 +237,7 @@ main {
 .hero-pill-list {
   position: absolute;
   right: 16px;
-  bottom: 120px;
+  bottom: 112px;
   flex-direction: column;
   align-items: flex-end;
   gap: 18px;
@@ -247,10 +247,10 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 32px;
+  min-height: 30px;
   padding: 5px 16px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.78);
   box-shadow: 0 12px 18px rgba(17, 14, 10, 0.12);
   color: rgba(18, 18, 18, 0.8);
   font-size: 12px;
@@ -258,7 +258,7 @@ main {
 }
 
 .hero-pill-list span:nth-child(2) {
-  transform: translateX(-28px);
+  transform: translateX(-30px);
 }
 
 .hero-pill-list span:nth-child(3) {
