@@ -18,6 +18,7 @@
           <span class="brand-mark" aria-hidden="true">Z<span>&</span>K</span>
           <span class="brand-name">Zruby <span>a</span> Krovy</span>
         </a>
+
         <nav class="main-nav" aria-label="Hlavná navigácia">
           <a href="#o-nas">O nás</a>
           <a href="#sluzby">Druhy prác</a>
@@ -25,26 +26,25 @@
           <a href="#galeria">Galéria</a>
           <a class="nav-contact" href="#kontakt">Kontakt <span aria-hidden="true">↗</span></a>
         </nav>
+
+        <form class="site-search" id="site-search" role="search">
+          <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
+          <input id="search-query" type="search" placeholder="Search" required>
+          <button type="submit" aria-label="Vyhľadať">⌕</button>
+        </form>
       </header>
 
       <div class="hero-content">
-        <p class="eyebrow">Tesárstvo pre domov aj záhradu</p>
-        <h1 id="hero-title">Poctivá práca.<br><em>Drevo, ktoré vydrží.</em></h1>
-        <p class="hero-copy">Strechy, zruby a drevené stavby, ktoré prirodzene patria do krajiny aj do vášho života.</p>
-        <div class="hero-actions">
-          <a class="button button-light" href="#sluzby">Naše práce <span aria-hidden="true">↓</span></a>
-          <a class="text-link" href="#kontakt">Poradiť sa o projekte <span aria-hidden="true">↗</span></a>
+        <div class="hero-copy-panel">
+          <h1 id="hero-title">Tradičné zruby a precízne krovy na mieru</h1>
+          <p>Vitajte na stránke našeho tesárstva, kde sa spájajú tradičná remeselná zručnosť, kvalitné drevo a precízny prístup k každému projektu.</p>
         </div>
-        <form class="site-search" id="site-search" role="search">
-          <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
-          <input id="search-query" type="search" placeholder="Nájdite službu alebo materiál" required>
-          <button type="submit" aria-label="Vyhľadať">Hľadať <span aria-hidden="true">↗</span></button>
-        </form>
-        <p class="search-status" id="search-status" role="status" aria-live="polite"></p>
-      </div>
-      <div class="hero-foot">
-        <span>Remeslo s rešpektom k materiálu</span>
-        <a href="#o-nas">Objavte Zruby a Krovy <span aria-hidden="true">↓</span></a>
+
+        <div class="hero-pill-list" aria-label="Najčastejšie služby">
+          <span>Tradičné zruby</span>
+          <span>Rekonstrukcie</span>
+          <span>Strechy</span>
+        </div>
       </div>
     </section>
 
@@ -188,25 +188,31 @@
     const form = document.querySelector("#contact-form");
     const formNote = document.querySelector("#form-note");
 
-    searchForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const query = searchInput.value.trim().toLocaleLowerCase("sk");
-      const match = [...document.querySelectorAll("main section[id]")].find((section) =>
-        section.textContent.toLocaleLowerCase("sk").includes(query)
-      );
+    if (searchForm && searchInput) {
+      searchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const query = searchInput.value.trim().toLocaleLowerCase("sk");
+        const match = [...document.querySelectorAll("main section[id]")].find((section) =>
+          section.textContent.toLocaleLowerCase("sk").includes(query)
+        );
 
-      if (match) {
-        searchStatus.textContent = `Našli sme sekciu: ${match.querySelector("h1, h2")?.textContent.trim()}.`;
-        match.scrollIntoView({ behavior: "smooth" });
-      } else {
-        searchStatus.textContent = "Takýto obsah sme nenašli. Skúste napríklad strecha, smrek alebo altánok.";
-      }
-    });
+        if (match) {
+          if (searchStatus) {
+            searchStatus.textContent = `Našli sme sekciu: ${match.querySelector("h1, h2")?.textContent.trim()}.`;
+          }
+          match.scrollIntoView({ behavior: "smooth" });
+        } else if (searchStatus) {
+          searchStatus.textContent = "Takýto obsah sme nenašli. Skúste napríklad strecha, smrek alebo altánok.";
+        }
+      });
+    }
 
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      formNote.textContent = "Ďakujeme. Formulár bude možné odoslať po doplnení firemného e-mailu.";
-    });
+    if (form && formNote) {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        formNote.textContent = "Ďakujeme. Formulár bude možné odoslať po doplnení firemného e-mailu.";
+      });
+    }
   </script>
 </body>
 </html>
