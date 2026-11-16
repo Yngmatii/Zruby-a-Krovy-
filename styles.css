@@ -281,6 +281,51 @@ img { display: block; max-width: 100%; }
 
 .page-header { min-height: 72px; }
 
+.subpage-hero {
+  position: relative;
+  display: grid;
+  min-height: clamp(280px, 38vw, 430px);
+  place-items: center;
+  padding: clamp(24px, 5vw, 56px) 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48)),
+    url("img/Hlavná fotka.jpg") center 48% / cover no-repeat;
+}
+
+.subpage-hero-panel {
+  width: min(760px, 90%);
+  padding: clamp(22px, 4vw, 42px);
+  background: rgba(235, 235, 235, 0.76);
+  text-align: center;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.subpage-hero .page-kicker {
+  margin-bottom: 12px;
+  color: #3a3a3a;
+}
+
+.subpage-hero .page-title {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #111;
+  font-size: clamp(28px, 4vw, 46px);
+}
+
+.subpage-hero .page-lead {
+  max-width: 640px;
+  margin: 16px auto 0;
+  padding: 0;
+  background: transparent;
+  color: #282828;
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-style: normal;
+}
+
 .page-content {
   min-height: calc(100vh - 86px);
   padding: clamp(24px, 5vw, 52px) clamp(18px, 5vw, 60px);
@@ -623,6 +668,14 @@ img { display: block; max-width: 100%; }
   .hero-badges { top: auto; right: 5%; bottom: 9%; gap: 12px; }
   .page-main { padding: 8px; }
   .page-header { min-height: 48px; }
+  .subpage-hero {
+    min-height: 260px;
+    padding: 22px 12px;
+    background-position: center center;
+  }
+  .subpage-hero-panel { width: 100%; padding: 22px 16px; }
+  .subpage-hero .page-title { font-size: 28px; }
+  .subpage-hero .page-lead { font-size: 14px; }
   .page-content { padding: 24px 14px; }
   .about-layout { grid-template-columns: 1fr; }
   .about-image,
