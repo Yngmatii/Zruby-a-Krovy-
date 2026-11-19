@@ -22,11 +22,14 @@
           <a class="nav-contact" href="kontakt.html">Kontakt <span aria-hidden="true">↗</span></a>
         </nav>
 
-        <form class="site-search" id="site-search" role="search" aria-label="Vyhľadávanie">
-          <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
-          <input id="search-query" type="search" placeholder="Search" aria-label="Search" />
-          <button type="submit" aria-label="Vyhľadať"><span aria-hidden="true"></span></button>
-        </form>
+        <div class="search-container">
+          <form class="site-search" id="site-search" role="search" aria-label="Vyhľadávanie">
+            <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
+            <input id="search-query" type="search" placeholder="Vyhľadať" aria-label="Vyhľadať na stránke" aria-controls="search-results" aria-expanded="false" />
+            <button type="submit" aria-label="Vyhľadať"><span aria-hidden="true"></span></button>
+          </form>
+          <div class="search-results" id="search-results" role="region" aria-label="Výsledky vyhľadávania" aria-live="polite" hidden></div>
+        </div>
         <a class="profile-link" href="kontakt.html" aria-label="Kontaktujte nás"></a>
       </header>
 
@@ -39,7 +42,7 @@
 
       <section class="page-content">
         <div class="service-grid">
-          <article class="service-card">
+          <article class="service-card" id="service-rekonstrukcie">
             <h3>Rekonštrukcie</h3>
             <img src="img/project-reference/rekonstrukcia.svg" alt="Rekonštrukcia strechy rodinného domu">
             <p>Vychytáme nový život starým stavbám a chránime to najcennejšie – váš domov. Spájame overené tesárske postupy s modernými štandardmi kvality.</p>
@@ -50,7 +53,7 @@
             </ul>
           </article>
 
-          <article class="service-card">
+          <article class="service-card" id="service-strechy">
             <h3>Stavba striech</h3>
             <img src="img/project-reference/strecha.svg" alt="Nový strešný krov na rodinnom dome">
             <p>Vyrábame a montujeme nové krovy na mieru. Každú konštrukciu prispôsobíme stavbe aj požadovanému typu strechy.</p>
@@ -61,7 +64,7 @@
             </ul>
           </article>
 
-          <article class="service-card">
+          <article class="service-card" id="service-zruby">
             <h3>Stavba zrubových domov</h3>
             <img src="img/project-reference/zrub.svg" alt="Rozostavaný zrubový dom">
             <p>Navrhujeme a realizujeme zruby s tradičným charakterom a dôrazom na pohodlie, kvalitný materiál a dlhú životnosť.</p>
@@ -100,5 +103,6 @@
     </main>
 
     <script src="script.js"></script>
+    <script src="search.js"></script>
   </body>
 </html>

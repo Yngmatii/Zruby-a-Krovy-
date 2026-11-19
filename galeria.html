@@ -22,11 +22,14 @@
           <a class="nav-contact" href="kontakt.html">Kontakt <span aria-hidden="true">↗</span></a>
         </nav>
 
-        <form class="site-search" id="site-search" role="search" aria-label="Vyhľadávanie">
-          <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
-          <input id="search-query" type="search" placeholder="Search" aria-label="Search" />
-          <button type="submit" aria-label="Vyhľadať"><span aria-hidden="true"></span></button>
-        </form>
+        <div class="search-container">
+          <form class="site-search" id="site-search" role="search" aria-label="Vyhľadávanie">
+            <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
+            <input id="search-query" type="search" placeholder="Vyhľadať" aria-label="Vyhľadať na stránke" aria-controls="search-results" aria-expanded="false" />
+            <button type="submit" aria-label="Vyhľadať"><span aria-hidden="true"></span></button>
+          </form>
+          <div class="search-results" id="search-results" role="region" aria-label="Výsledky vyhľadávania" aria-live="polite" hidden></div>
+        </div>
         <a class="profile-link" href="kontakt.html" aria-label="Kontaktujte nás"></a>
       </header>
 
@@ -132,5 +135,6 @@
     </main>
 
     <script src="script.js"></script>
+    <script src="search.js"></script>
   </body>
 </html>

@@ -1,4 +1,3 @@
-const searchForm = document.querySelector('#site-search');
 const contactForm = document.querySelector('#contact-form');
 const formNote = document.querySelector('#form-note');
 const messagesStorageKey = 'zruby_krovy_messages';
@@ -51,16 +50,6 @@ function renderStoredMessages() {
       <p class="message-text">${escapeHtml(message.message)}</p>
     </article>
   `).join('');
-}
-
-if (searchForm) {
-  searchForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const searchInput = searchForm.querySelector('input');
-    if (searchInput) {
-      searchInput.blur();
-    }
-  });
 }
 
 if (contactForm) {

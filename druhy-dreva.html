@@ -22,11 +22,14 @@
           <a class="nav-contact" href="kontakt.html">Kontakt <span aria-hidden="true">↗</span></a>
         </nav>
 
-        <form class="site-search" id="site-search" role="search" aria-label="Vyhľadávanie">
-          <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
-          <input id="search-query" type="search" placeholder="Search" aria-label="Search" />
-          <button type="submit" aria-label="Vyhľadať"><span aria-hidden="true"></span></button>
-        </form>
+        <div class="search-container">
+          <form class="site-search" id="site-search" role="search" aria-label="Vyhľadávanie">
+            <label class="visually-hidden" for="search-query">Vyhľadať na stránke</label>
+            <input id="search-query" type="search" placeholder="Vyhľadať" aria-label="Vyhľadať na stránke" aria-controls="search-results" aria-expanded="false" />
+            <button type="submit" aria-label="Vyhľadať"><span aria-hidden="true"></span></button>
+          </form>
+          <div class="search-results" id="search-results" role="region" aria-label="Výsledky vyhľadávania" aria-live="polite" hidden></div>
+        </div>
         <a class="profile-link" href="kontakt.html" aria-label="Kontaktujte nás"></a>
       </header>
 
@@ -39,7 +42,7 @@
 
       <section class="page-content">
         <div class="wood-grid">
-          <article class="wood-card">
+          <article class="wood-card" id="wood-smrek">
             <h3>Smrek</h3>
             <p>Ľahké, dobre spracovateľné drevo s výbornou kompatibilitou pre konštrukcie a interiérové prvky. Ideálne na krovy a menej náročné nosné prvky.</p>
             <details class="wood-details">
@@ -51,7 +54,7 @@
               </div>
             </details>
           </article>
-          <article class="wood-card">
+          <article class="wood-card" id="wood-borovica">
             <h3>Borovica</h3>
             <p>Pružné a stabilné drevo s výraznou kresbou. Vhodné do konštrukcií, obkladov a terasových prvkov.</p>
             <details class="wood-details">
@@ -63,7 +66,7 @@
               </div>
             </details>
           </article>
-          <article class="wood-card">
+          <article class="wood-card" id="wood-smrekovec">
             <h3>Smrekovec</h3>
             <p>Odolné a pevné drevo s prirodzenou trvanlivosťou, často využívané pre exteriérové aplikácie a nosné systémy.</p>
             <details class="wood-details">
@@ -75,7 +78,7 @@
               </div>
             </details>
           </article>
-          <article class="wood-card">
+          <article class="wood-card" id="wood-dub">
             <h3>Dub</h3>
             <p>Tvrdé a odolné drevo s atraktívnou kresbou. Najčastejšie nadväzuje na náročnejšie interiérové a nosné aplikácie.</p>
             <details class="wood-details">
@@ -126,5 +129,6 @@
     </main>
 
     <script src="script.js"></script>
+    <script src="search.js"></script>
   </body>
 </html>
