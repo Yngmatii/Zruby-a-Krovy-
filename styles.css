@@ -426,6 +426,28 @@ img {
 
 .hero-home .hero-badge { pointer-events: auto; }
 
+.hero-illustration { display: none; }
+
+@media (min-width: 1001px) {
+  .hero-home .subpage-hero-panel {
+    width: min(650px, 56%);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-home .hero-badges { z-index: 1; }
+
+  .hero-illustration {
+    display: block;
+    position: absolute;
+    top: 24px;
+    right: 23%;
+    width: clamp(130px, 15vw, 168px);
+    opacity: 0.78;
+    pointer-events: none;
+  }
+}
+
 .subpage-hero-panel {
   display: flex;
   width: min(650px, 90%);
