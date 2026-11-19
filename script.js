@@ -141,3 +141,60 @@ if (!prefersReducedMotion && 'IntersectionObserver' in window) {
     });
   }
 }
+
+const imageLightbox = document.createElement('dialog');
+imageLightbox.className = 'image-lightbox';
+imageLightbox.setAttribute('aria-label', 'Zväčšený obrázok');
+
+const enlargedImage = document.createElement('img');
+const closeImageLightbox = document.createElement('button');
+closeImageLightbox.className = 'image-lightbox-close';
+closeImageLightbox.type = 'button';
+closeImageLightbox.setAttribute('aria-label', 'Zatvoriť obrázok');
+closeImageLightbox.textContent = '×';
+imageLightbox.append(closeImageLightbox, enlargedImage);
+document.body.append(imageLightbox);
+
+function openImageLightbox(image) {
+  enlargedImage.src = image.currentSrc || image.src;
+  enlargedImage.alt = image.alt;
+  imageLightbox.setAttribute(
+    'aria-label',
+    image.alt ? `Zväčšený obrázok: ${image.alt}` : 'Zväčšený obrázok'
+  );
+  imageLightbox.showModal();
+  closeImageLightbox.focus();
+}
+
+document.addEventListener('click', (event) => {
+  const image = event.target.closest('img');
+  if (!image || imageLightbox.contains(image)) return;
+
+  event.preventDefault();
+  openImageLightbox(image);
+});
+
+document.addEventListener('keydown', (event) => {
+  const image = event.target.closest('img[role="button"]');
+  if (!image || (event.key !== 'Enter' && event.key !== ' ')) return;
+
+  event.preventDefault();
+  openImageLightbox(image);
+});
+
+document.querySelectorAll('img').forEach((image) => {
+  image.classList.add('image-zoomable');
+  if (image.closest('a, button')) return;
+
+  image.tabIndex = 0;
+  image.setAttribute('role', 'button');
+  image.setAttribute(
+    'aria-label',
+    image.alt ? `${image.alt} – otvoriť na celú obrazovku` : 'Otvoriť obrázok na celú obrazovku'
+  );
+});
+
+closeImageLightbox.addEventListener('click', () => imageLightbox.close());
+imageLightbox.addEventListener('click', (event) => {
+  if (event.target === imageLightbox) imageLightbox.close();
+});
