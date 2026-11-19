@@ -281,6 +281,13 @@ img { display: block; max-width: 100%; }
 
 .home-main { padding-bottom: 14px; }
 
+.home-about {
+  min-height: 0;
+  margin-top: 14px;
+  padding-top: clamp(24px, 4vw, 44px);
+  padding-bottom: clamp(24px, 4vw, 44px);
+}
+
 .page-header { min-height: 72px; }
 
 .subpage-hero {
