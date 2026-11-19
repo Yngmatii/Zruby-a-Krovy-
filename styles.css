@@ -537,6 +537,64 @@ img { display: block; max-width: 100%; }
 
 .wood-grid { margin-bottom: 28px; }
 
+.wood-details {
+  margin-top: 14px;
+  border-top: 1px solid #b7b7b7;
+}
+
+.wood-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0 0;
+  color: #242424;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.wood-details summary::-webkit-details-marker { display: none; }
+
+.wood-details summary::after {
+  width: 8px;
+  height: 8px;
+  content: "";
+  border-right: 2px solid var(--red);
+  border-bottom: 2px solid var(--red);
+  transform: rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.wood-details[open] summary::after { transform: rotate(225deg); }
+
+.wood-details-content {
+  display: grid;
+  gap: 9px;
+  padding-top: 12px;
+  animation: wood-details-reveal 180ms ease-out;
+}
+
+.wood-card .wood-details-content p {
+  margin: 0;
+  color: #222;
+  line-height: 1.55;
+}
+
+.wood-details-content strong { color: #242424; }
+
+@keyframes wood-details-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .wood-table {
   width: 100%;
   margin-top: 28px;
