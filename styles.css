@@ -614,6 +614,24 @@ img { display: block; max-width: 100%; }
   transform: translateX(-50%);
 }
 
+.service-card > p,
+.service-card h4 {
+  max-width: 430px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+}
+
+.service-card > p { margin-bottom: 12px; }
+
+.service-card h4 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: #242424;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
 .service-card > img {
   width: min(100%, 360px);
   height: 210px;
