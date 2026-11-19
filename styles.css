@@ -989,8 +989,8 @@ img {
     grid-column: 1 / -1;
     grid-row: 2;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 4px 10px;
+    justify-content: center;
+    gap: 4px 12px;
     width: 100%;
   }
   .main-nav a {
@@ -1077,7 +1077,7 @@ img {
   }
   .subpage-hero .page-title {
     padding: 14px 18px;
-    font-size: clamp(26px, 5vw, 36px);
+    font-size: clamp(24px, 3.65vw, 28px);
   }
   .subpage-hero .page-lead { padding: 12px 18px; }
 
@@ -1110,7 +1110,15 @@ img {
 
   .page-main { padding: 8px; }
   .page-header { min-height: 0; }
-  .page-content { padding: 24px 16px; }
+  .page-content {
+    min-width: 0;
+    padding: 24px 16px;
+  }
+  .service-grid,
+  .service-card {
+    min-width: 0;
+  }
+  .service-card { overflow-wrap: anywhere; }
   .about-layout,
   .info-grid,
   .service-grid,
@@ -1162,8 +1170,22 @@ img {
 
 @media (max-width: 480px) {
   .site-header { gap: 6px 8px; padding: 8px; }
-  .main-nav { justify-content: center; gap: 2px 8px; }
-  .main-nav a { padding-inline: 3px; font-size: 13px; }
+  .main-nav {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 2px 0;
+  }
+  .main-nav a {
+    justify-content: center;
+    padding-inline: 3px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .main-nav a:nth-child(1) { grid-column: 1 / 3; }
+  .main-nav a:nth-child(2) { grid-column: 3 / 5; }
+  .main-nav a:nth-child(3) { grid-column: 5 / 7; }
+  .main-nav a:nth-child(4) { grid-column: 2 / 4; }
+  .main-nav a:nth-child(5) { grid-column: 4 / 6; }
   .search-results { right: 0; left: 0; width: 100%; }
 
   .hero { min-height: 620px; }
@@ -1174,13 +1196,13 @@ img {
   .hero:not(.hero-home) .hero-badge { flex-basis: 100%; }
 
   .page-main { padding: 6px; }
-  .subpage-hero { padding: 22px 12px; }
+  .subpage-hero { padding: 20px 12px; }
   .subpage-hero-panel { gap: 10px; }
   .subpage-hero .page-title {
-    padding: 12px 14px;
-    font-size: clamp(24px, 7.5vw, 32px);
+    padding: 11px 13px;
+    font-size: clamp(24px, 5.8vw, 28px);
   }
-  .subpage-hero .page-lead { padding: 10px 14px; font-size: 14px; }
+  .subpage-hero .page-lead { padding: 10px 13px; font-size: 14px; }
   .hero-home {
     min-height: 560px;
     padding: 24px 12px 88px;
@@ -1189,7 +1211,7 @@ img {
     width: calc(100% - 32px);
     margin: 0 16px;
   }
-  .hero-home .page-title { font-size: clamp(24px, 7.5vw, 32px); }
+  .hero-home .page-title { font-size: clamp(24px, 5.8vw, 28px); }
   .hero-home .page-lead { font-size: 14px; }
   .hero-home .hero-badges { right: 12px; bottom: 12px; left: 12px; gap: 6px; }
   .hero-home .hero-badge { min-height: 44px; padding: 8px 4px; font-size: 12px; }
