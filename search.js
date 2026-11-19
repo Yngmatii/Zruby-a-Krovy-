@@ -24,6 +24,7 @@ const relatedSearchLinks = [
 let generatedId = 0;
 let highlightedElement;
 let highlightTimer;
+const scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
 function normalizeSearchText(value) {
   return value
@@ -161,7 +162,7 @@ function renderResults(matches, relatedLinks) {
           if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
           event.preventDefault();
           openContainingDetails(match.element);
-          match.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          match.element.scrollIntoView({ behavior: scrollBehavior, block: 'center' });
           highlight(match.element);
         }
       );
@@ -205,7 +206,7 @@ if (searchForm && searchInput && searchResults && searchMain) {
 
     if (matches[0]) {
       openContainingDetails(matches[0].element);
-      matches[0].element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      matches[0].element.scrollIntoView({ behavior: scrollBehavior, block: 'center' });
       highlight(matches[0].element);
     }
   });

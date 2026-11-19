@@ -101,7 +101,43 @@ if (window.location.hash) {
   const target = document.querySelector(window.location.hash);
   if (target) {
     setTimeout(() => {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      target.scrollIntoView({ behavior, block: 'start' });
     }, 100);
+  }
+}
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+  const motionItems = document.querySelectorAll([
+    '.subpage-hero-panel',
+    '.hero-badge',
+    '.home-about',
+    '.about-layout > *',
+    '.service-card',
+    '.wood-card',
+    '.gallery-section',
+    '.gallery-card',
+    '.contact-info',
+    '.contact-card',
+    '.received-messages',
+    '.table-scroll'
+  ].join(', '));
+
+  if (motionItems.length) {
+    document.documentElement.classList.add('motion-enabled');
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+
+    motionItems.forEach((item) => {
+      item.classList.add('motion-item');
+      observer.observe(item);
+    });
   }
 }

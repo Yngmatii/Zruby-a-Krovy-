@@ -1450,3 +1450,33 @@ table {
     max-width: 100%;
   }
 }
+
+html.motion-enabled .motion-item {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 420ms ease-out, transform 420ms ease-out;
+}
+
+html.motion-enabled .motion-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
+  .motion-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
