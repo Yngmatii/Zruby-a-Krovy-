@@ -380,6 +380,7 @@ img {
   min-height: 100vh;
   margin: 0 auto;
   padding: 14px 16px 48px;
+  overflow-x: hidden;
   background: #c3c3c3;
 }
 
@@ -401,9 +402,48 @@ img {
   place-items: center;
   padding: clamp(24px, 5vw, 56px) 18px;
   overflow: hidden;
+}
+
+.subpage-hero::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0 -60px;
+  content: "";
   background:
     linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)),
     url("img/Hlavná fotka.jpg") center 48% / cover no-repeat;
+}
+
+@keyframes subpage-banner-enter-left {
+  from {
+    opacity: 0;
+    transform: translateX(clamp(-56px, -5vw, -24px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes subpage-text-enter-right {
+  from {
+    opacity: 0;
+    transform: translateX(clamp(24px, 5vw, 56px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.subpage-hero.entrance-ready::before {
+  animation: subpage-banner-enter-left 620ms ease-out both;
+}
+
+.subpage-hero.entrance-ready .subpage-hero-panel {
+  animation: subpage-text-enter-right 620ms ease-out 100ms both;
 }
 
 .hero-home .subpage-hero-panel { width: min(650px, 78%); }
@@ -412,11 +452,14 @@ img {
   top: 50%;
   right: 3.5%;
   transform: translateY(-50%);
+  z-index: 1;
 }
 
 .hero-home .hero-badge { pointer-events: auto; }
 
 .subpage-hero-panel {
+  position: relative;
+  z-index: 1;
   display: flex;
   width: min(650px, 90%);
   margin-left: 4%;

@@ -108,9 +108,14 @@ if (window.location.hash) {
 }
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReducedMotion) {
+  document.querySelectorAll('[data-page-entrance]').forEach((hero) => {
+    hero.classList.add('entrance-ready');
+  });
+}
+
 if (!prefersReducedMotion && 'IntersectionObserver' in window) {
   const motionItems = document.querySelectorAll([
-    '.subpage-hero-panel',
     '.hero-badge',
     '.home-about',
     '.about-layout > *',
