@@ -517,6 +517,28 @@ img { display: block; max-width: 100%; }
   text-align: center;
 }
 
+.service-card h3 {
+  position: relative;
+  width: fit-content;
+  margin: 18px auto 14px;
+  padding-bottom: 8px;
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.service-card h3::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 42px;
+  height: 2px;
+  content: "";
+  background: var(--red);
+  transform: translateX(-50%);
+}
+
 .service-card > img {
   width: min(100%, 360px);
   height: 210px;
