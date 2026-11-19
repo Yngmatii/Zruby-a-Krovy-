@@ -54,15 +54,28 @@
               <input class="form-field" id="contact-name" name="name" type="text" autocomplete="name" required>
               <label for="contact-email">Váš email</label>
               <input class="form-field" id="contact-email" name="email" type="email" autocomplete="email" required>
-              <label for="contact-subject">Predmet</label>
-              <input class="form-field" id="contact-subject" name="subject" type="text" required>
+              <label for="contact-phone">Telefón</label>
+              <input class="form-field" id="contact-phone" name="phone" type="tel" autocomplete="tel" required>
               <label for="contact-message">Vaša správa</label>
               <textarea class="form-field" id="contact-message" name="message" rows="5" required></textarea>
               <button type="submit">Odoslať</button>
             </form>
-            <p id="form-note" class="form-note">Formulár slúži na prípravu dopytu; správa sa zatiaľ neodosiela na server.</p>
+            <p id="form-note" class="form-note" aria-live="polite"></p>
           </section>
         </div>
+
+        <section class="received-messages" aria-labelledby="received-messages-title">
+          <div class="received-messages-header">
+            <button type="button" id="toggle-messages" aria-expanded="false" aria-controls="received-messages-panel">
+              Zobraziť prijaté správy
+            </button>
+          </div>
+          <div id="received-messages-panel" hidden>
+            <h2 id="received-messages-title">Prijaté správy</h2>
+            <div id="messages-list" class="messages-list"></div>
+            <button type="button" id="clear-messages" class="clear-messages">Vymazať správy</button>
+          </div>
+        </section>
       </section>
     </main>
 

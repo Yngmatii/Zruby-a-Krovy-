@@ -698,6 +698,122 @@ img { display: block; max-width: 100%; }
 
 .form-note { margin-top: 12px !important; }
 
+.form-success {
+  padding: 12px 14px;
+  border: 1px solid #4f8055;
+  background: #dfeede;
+  color: #24552a;
+  font-weight: 700;
+}
+
+.received-messages {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #b4b4b4;
+}
+
+.received-messages-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.received-messages button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 10px 18px;
+  border: 1px solid #999;
+  background: #f5f5f5;
+  color: #222;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.received-messages button:hover,
+.received-messages button:focus-visible { background: #fff; }
+
+#received-messages-panel {
+  margin-top: 18px;
+  padding: 20px;
+  border: 1px solid #c6c6c6;
+  background: #e8e8e8;
+}
+
+#received-messages-panel h2 {
+  margin: 0 0 18px;
+  font-size: 22px;
+}
+
+.messages-list {
+  display: grid;
+  gap: 12px;
+}
+
+.message-card {
+  padding: 16px;
+  border: 1px solid #c6c6c6;
+  background: #fff;
+}
+
+.message-card .message-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.message-card h3 {
+  margin: 0;
+  color: var(--red);
+  font-size: 18px;
+}
+
+.message-card time {
+  color: #666;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.message-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.message-card dl div {
+  padding: 8px;
+  background: #efefef;
+}
+
+.message-card dt {
+  color: #666;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.message-card dd {
+  margin: 2px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.message-card .message-text {
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.messages-empty { color: #555; }
+
+.received-messages .clear-messages {
+  margin-top: 14px;
+  border-color: #9d6868;
+  color: #7b1d1d;
+}
+
 .gallery-section {
   margin-top: 30px;
   padding-top: 20px;
