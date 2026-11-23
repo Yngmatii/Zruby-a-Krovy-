@@ -900,6 +900,14 @@ img {
   font-weight: 700;
 }
 
+.form-error {
+  padding: 12px 14px;
+  border: 1px solid #a33;
+  background: #f8e3e3;
+  color: #7a1f1f;
+  font-weight: 700;
+}
+
 .received-messages {
   margin-top: 24px;
   padding-top: 18px;

@@ -89,7 +89,7 @@
           <div id="received-messages-panel" hidden>
             <h2 id="received-messages-title">Prijaté správy</h2>
             <div id="messages-list" class="messages-list"></div>
-            <button type="button" id="clear-messages" class="clear-messages">Vymazať správy</button>
+            <button type="button" id="clear-messages" class="clear-messages" hidden disabled>Vymazať správy</button>
           </div>
         </section>
       </section>
@@ -110,6 +110,13 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      window.supabaseConfig = {
+        url: 'https://YOUR_PROJECT_ID.supabase.co',
+        anonKey: 'YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY'
+      };
+    </script>
     <script src="script.js"></script>
     <script src="search.js"></script>
   </body>

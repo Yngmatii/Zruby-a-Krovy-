@@ -1,19 +1,13 @@
 const contactForm = document.querySelector('#contact-form');
 const formNote = document.querySelector('#form-note');
-const messagesStorageKey = 'zruby_krovy_messages';
 const messagesToggle = document.querySelector('#toggle-messages');
 const messagesPanel = document.querySelector('#received-messages-panel');
 const messagesList = document.querySelector('#messages-list');
-const clearMessagesButton = document.querySelector('#clear-messages');
-
-function getStoredMessages() {
-  try {
-    const storedMessages = JSON.parse(localStorage.getItem(messagesStorageKey) || '[]');
-    return Array.isArray(storedMessages) ? storedMessages : [];
-  } catch (error) {
-    return [];
-  }
-}
+const supabaseConfig = window.supabaseConfig || {};
+const supabaseClient = window.supabase && supabaseConfig.url && supabaseConfig.anonKey &&
+  !supabaseConfig.url.includes('YOUR_') && !supabaseConfig.anonKey.includes('YOUR_')
+  ? window.supabase.createClient(supabaseConfig.url, supabaseConfig.anonKey)
+  : null;
 
 function escapeHtml(value) {
   const element = document.createElement('div');
@@ -26,54 +20,86 @@ function formatTimestamp(timestamp) {
   return Number.isNaN(date.getTime()) ? String(timestamp) : date.toLocaleString('sk-SK');
 }
 
-function renderStoredMessages() {
+async function loadMessages() {
   if (!messagesList) return;
 
-  const messages = getStoredMessages();
-  if (messages.length === 0) {
-    messagesList.innerHTML = '<p class="messages-empty">Zatiaľ neboli prijaté žiadne správy.</p>';
-    if (clearMessagesButton) clearMessagesButton.hidden = true;
+  if (!supabaseClient) {
+    messagesList.innerHTML = '<p class="messages-empty">Doplňte pripojenie k Supabase.</p>';
     return;
   }
 
-  if (clearMessagesButton) clearMessagesButton.hidden = false;
-  messagesList.innerHTML = [...messages].reverse().map((message) => `
+  messagesList.innerHTML = '<p class="messages-empty">Načítavam správy...</p>';
+  const { data: messages, error } = await supabaseClient
+    .from('spravy')
+    .select('meno, email, telefon, sprava, created_at')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('Nepodarilo sa načítať správy zo Supabase:', error);
+    messagesList.innerHTML = '<p class="messages-empty">Správy sa nepodarilo načítať.</p>';
+    return;
+  }
+
+  if (!messages || messages.length === 0) {
+    messagesList.innerHTML = '<p class="messages-empty">Zatiaľ neboli prijaté žiadne správy.</p>';
+    return;
+  }
+
+  messagesList.innerHTML = messages.map((message) => `
     <article class="message-card">
       <div class="message-meta">
-        <h3>${escapeHtml(message.name)}</h3>
-        <time>${escapeHtml(formatTimestamp(message.timestamp))}</time>
+        <h3>${escapeHtml(message.meno)}</h3>
+        <time>${escapeHtml(formatTimestamp(message.created_at))}</time>
       </div>
       <dl>
         <div><dt>Email</dt><dd>${escapeHtml(message.email)}</dd></div>
-        <div><dt>Telefón</dt><dd>${escapeHtml(message.phone)}</dd></div>
+        <div><dt>Telefón</dt><dd>${escapeHtml(message.telefon)}</dd></div>
       </dl>
-      <p class="message-text">${escapeHtml(message.message)}</p>
+      <p class="message-text">${escapeHtml(message.sprava)}</p>
     </article>
   `).join('');
 }
 
 if (contactForm) {
-  contactForm.addEventListener('submit', (event) => {
+  contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    if (!supabaseClient) {
+      if (formNote) {
+        formNote.textContent = 'Pripojenie k Supabase nie je nastavené.';
+        formNote.className = 'form-note form-error';
+      }
+      return;
+    }
+
     const message = {
-      name: contactForm.elements.name.value.trim(),
+      meno: contactForm.elements.name.value.trim(),
       email: contactForm.elements.email.value.trim(),
-      phone: contactForm.elements.phone.value.trim(),
-      message: contactForm.elements.message.value.trim(),
-      timestamp: new Date().toISOString()
+      telefon: contactForm.elements.phone.value.trim(),
+      sprava: contactForm.elements.message.value.trim()
     };
 
-    const messages = getStoredMessages();
-    messages.push(message);
-    localStorage.setItem(messagesStorageKey, JSON.stringify(messages));
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
 
-    contactForm.reset();
-    renderStoredMessages();
+    try {
+      const { error } = await supabaseClient.from('spravy').insert(message);
+      if (error) throw error;
 
-    if (formNote) {
-      formNote.textContent = 'Správa bola úspešne odoslaná.';
-      formNote.className = 'form-note form-success';
+      contactForm.reset();
+      await loadMessages();
+      if (formNote) {
+        formNote.textContent = 'Správa bola úspešne odoslaná.';
+        formNote.className = 'form-note form-success';
+      }
+    } catch (error) {
+      console.error('Nepodarilo sa odoslať správu do Supabase:', error);
+      if (formNote) {
+        formNote.textContent = 'Správu sa nepodarilo odoslať. Skúste to znova.';
+        formNote.className = 'form-note form-error';
+      }
+    } finally {
+      submitButton.disabled = false;
     }
   });
 }
@@ -84,18 +110,10 @@ if (messagesToggle && messagesPanel) {
     messagesPanel.hidden = !shouldOpen;
     messagesToggle.setAttribute('aria-expanded', String(shouldOpen));
     messagesToggle.textContent = shouldOpen ? 'Skryť prijaté správy' : 'Zobraziť prijaté správy';
-    if (shouldOpen) renderStoredMessages();
   });
 }
 
-if (clearMessagesButton) {
-  clearMessagesButton.addEventListener('click', () => {
-    localStorage.removeItem(messagesStorageKey);
-    renderStoredMessages();
-  });
-}
-
-renderStoredMessages();
+if (messagesList) loadMessages();
 
 if (window.location.hash) {
   const target = document.querySelector(window.location.hash);
