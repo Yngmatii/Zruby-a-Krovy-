@@ -1575,6 +1575,47 @@ html.motion-enabled .motion-item.is-visible {
   cursor: pointer;
 }
 
+.image-lightbox [hidden] {
+  display: none;
+}
+
+.image-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: grid;
+  width: 48px;
+  height: 64px;
+  padding: 0;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background: #222;
+  color: #fff;
+  font: 40px/1 var(--sans);
+  cursor: pointer;
+}
+
+.image-lightbox-nav:hover,
+.image-lightbox-close:hover {
+  background: #444;
+}
+
+.image-lightbox-nav:focus-visible,
+.image-lightbox-close:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+.image-lightbox-previous {
+  left: max(16px, env(safe-area-inset-left));
+}
+
+.image-lightbox-next {
+  right: max(16px, env(safe-area-inset-right));
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

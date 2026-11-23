@@ -153,14 +153,33 @@ imageLightbox.setAttribute('aria-label', 'Zväčšený obrázok');
 
 const enlargedImage = document.createElement('img');
 const closeImageLightbox = document.createElement('button');
+const previousImageButton = document.createElement('button');
+const nextImageButton = document.createElement('button');
 closeImageLightbox.className = 'image-lightbox-close';
 closeImageLightbox.type = 'button';
 closeImageLightbox.setAttribute('aria-label', 'Zatvoriť obrázok');
 closeImageLightbox.textContent = '×';
-imageLightbox.append(closeImageLightbox, enlargedImage);
+previousImageButton.className = 'image-lightbox-nav image-lightbox-previous';
+previousImageButton.type = 'button';
+previousImageButton.setAttribute('aria-label', 'Predchádzajúca fotografia');
+previousImageButton.textContent = '‹';
+nextImageButton.className = 'image-lightbox-nav image-lightbox-next';
+nextImageButton.type = 'button';
+nextImageButton.setAttribute('aria-label', 'Nasledujúca fotografia');
+nextImageButton.textContent = '›';
+imageLightbox.append(closeImageLightbox, previousImageButton, enlargedImage, nextImageButton);
 document.body.append(imageLightbox);
 
+let galleryImages = [];
+let currentGalleryImageIndex = -1;
+
 function openImageLightbox(image) {
+  const gallerySection = image.closest('.gallery-section');
+  galleryImages = gallerySection ? [...document.querySelectorAll('.gallery-section .gallery-card img')] : [];
+  currentGalleryImageIndex = galleryImages.indexOf(image);
+  const hasGalleryNavigation = currentGalleryImageIndex !== -1 && galleryImages.length > 1;
+  previousImageButton.hidden = !hasGalleryNavigation;
+  nextImageButton.hidden = !hasGalleryNavigation;
   enlargedImage.src = image.currentSrc || image.src;
   enlargedImage.alt = image.alt;
   imageLightbox.setAttribute(
@@ -171,6 +190,20 @@ function openImageLightbox(image) {
   closeImageLightbox.focus();
 }
 
+function showGalleryImage(index) {
+  currentGalleryImageIndex = (index + galleryImages.length) % galleryImages.length;
+  const image = galleryImages[currentGalleryImageIndex];
+  enlargedImage.src = image.currentSrc || image.src;
+  enlargedImage.alt = image.alt;
+  imageLightbox.setAttribute(
+    'aria-label',
+    image.alt ? `Zväčšený obrázok: ${image.alt}` : 'Zväčšený obrázok'
+  );
+}
+
+previousImageButton.addEventListener('click', () => showGalleryImage(currentGalleryImageIndex - 1));
+nextImageButton.addEventListener('click', () => showGalleryImage(currentGalleryImageIndex + 1));
+
 document.addEventListener('click', (event) => {
   const image = event.target.closest('img');
   if (!image || imageLightbox.contains(image)) return;
@@ -180,6 +213,17 @@ document.addEventListener('click', (event) => {
 });
 
 document.addEventListener('keydown', (event) => {
+  if (imageLightbox.open && currentGalleryImageIndex !== -1 && galleryImages.length > 1) {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      showGalleryImage(currentGalleryImageIndex - 1);
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      showGalleryImage(currentGalleryImageIndex + 1);
+    }
+    return;
+  }
+
   const image = event.target.closest('img[role="button"]');
   if (!image || (event.key !== 'Enter' && event.key !== ' ')) return;
 
