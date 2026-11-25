@@ -65,7 +65,7 @@
 
           <section class="contact-card contact-form">
             <h2>Formulár</h2>
-            <form id="contact-form">
+            <form id="contact-form" action="mailto:teplicanec2@stud.uniza.sk" method="post" enctype="text/plain">
               <label for="contact-name">Meno a priezvisko</label>
               <input class="form-field" id="contact-name" name="name" type="text" autocomplete="name" required>
               <label for="contact-email">Váš email</label>
@@ -110,13 +110,6 @@
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-      window.supabaseConfig = {
-        url: 'https://YOUR_PROJECT_ID.supabase.co',
-        anonKey: 'YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY'
-      };
-    </script>
     <script src="script.js"></script>
     <script src="search.js"></script>
   </body>

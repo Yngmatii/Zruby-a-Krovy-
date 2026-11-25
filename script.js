@@ -65,10 +65,25 @@ if (contactForm) {
     event.preventDefault();
 
     if (!supabaseClient) {
+      const name = contactForm.elements.name.value.trim();
+      const email = contactForm.elements.email.value.trim();
+      const phone = contactForm.elements.phone.value.trim();
+      const message = contactForm.elements.message.value.trim();
+      const subject = `Správa z webu - ${name}`;
+      const body = [
+        `Meno a priezvisko: ${name}`,
+        `Email: ${email}`,
+        `Telefón: ${phone}`,
+        '',
+        message
+      ].join('\n');
+      const mailtoUrl = `mailto:teplicanec2@stud.uniza.sk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
       if (formNote) {
-        formNote.textContent = 'Pripojenie k Supabase nie je nastavené.';
-        formNote.className = 'form-note form-error';
+        formNote.textContent = 'Otvorila sa e-mailová aplikácia. Správu odošlite jej tlačidlom.';
+        formNote.className = 'form-note form-success';
       }
+      window.location.href = mailtoUrl;
       return;
     }
 
